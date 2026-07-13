@@ -3,8 +3,8 @@
 > Note: The statistics scripts were developed with AI assistance; the analysis, validation, and findings are my own.
 
 Descriptive statistics on a 2024 U.S. Facebook/Instagram political-ads dataset,
-computed three independent ways — pure standard-library Python, pandas, and
-Polars — with dataset-level and grouped analysis, and verified to agree.
+computed three independent ways, pure standard-library Python, pandas, and
+Polars, with dataset-level and grouped analysis, and verified to agree.
 
 ## Dataset
 
@@ -26,16 +26,16 @@ Then compare the three output files — the numeric stats and grouped tables mat
 ## What each script does
 
 All three compute the same thing three ways:
-- **Dataset level** — per column: count, mean, min, max, sample std, median
+- **Dataset level**, per column: count, mean, min, max, sample std, median
   (numeric); count, unique, mode + frequency, top 5 (categorical). Plus row/column
   counts, missing values per column, and inferred type per column.
-- **Grouped** — by `page_id` (ad count, total/mean spend, total impressions per
+- **Grouped**: by `page_id` (ad count, total/mean spend, total impressions per
   page; top pages shown) and by `page_id + ad_id`.
 
-- `pure_python_stats.py` — standard library only (`csv`, `math`, `collections`);
+- `pure_python_stats.py`: standard library only (`csv`, `math`, `collections`);
   streaming single pass with running counters to stay memory-light on the ~500 MB file.
-- `pandas_stats.py` — pandas (`groupby`, `value_counts`, `nunique`).
-- `polars_stats.py` — Polars (expression-based, `group_by` + `agg`); reads all
+- `pandas_stats.py`: pandas (`groupby`, `value_counts`, `nunique`).
+- `polars_stats.py`: Polars (expression-based, `group_by` + `agg`); reads all
   columns as strings then casts, so type handling matches the other two.
 
 All three use sample standard deviation (n − 1).
