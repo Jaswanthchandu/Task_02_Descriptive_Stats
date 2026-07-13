@@ -11,9 +11,6 @@ Polars — with dataset-level and grouped analysis, and verified to agree.
 Source: [2024 Facebook Political Ads — Milestone A (Google Drive)](https://drive.google.com/file/d/1UPo11lH2Mlk2cnLtjv8P9XqlKitms-gp/view?usp=sharing)
 
 File used: `2024_fb_ads_president_scored_anon.csv` (246,745 rows x 41 columns).
-This is a **different file** from Task 1 — similar subject, different schema. The
-dataset is **not** included in this repository. Download it from the link above,
-place the CSV locally, and pass its path to the scripts.
 
 ## How to run
 
